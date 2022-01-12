@@ -20,8 +20,8 @@ def getsearch(name):
 
         referencedpapers = [item["PaperReferenceId"] for item in empRows]
         c = Counter(referencedpapers)
-        c.most_common()
-        print ("",c.most_common())
+        response = jsonify(c.most_common())
+        response.status_code = 200
         return response
     except Exception as e:
         print(e)
